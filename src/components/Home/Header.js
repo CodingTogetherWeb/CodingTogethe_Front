@@ -31,7 +31,9 @@ const Header = () => {
                 {/* 오른쪽 버튼들 */}
                 <div className="header-buttons">
                     <button className="btn btn-login">로그인</button>
-                    <button className="btn btn-signup">회원가입</button>
+                    <Link to="/join">
+                        <button className="btn btn-signup">회원가입</button>
+                    </Link>
                 </div>
             </div>
         </nav>
