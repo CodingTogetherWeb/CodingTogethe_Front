@@ -1,0 +1,127 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    min-height: 100vh;
+    background-color: #f9fafb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 0.9rem;
+    color: #6b7280;
+  }
+  
+  .form {
+    margin-top: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  label {
+    display: block;
+    font-size: 0.85rem;
+    margin-bottom: 0.25rem;
+    color: #374151;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.375rem;
+    outline: none;
+  }
+  
+  .input:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3);
+  }
+  
+  .error {
+    border-color: #f87171;
+  }
+  
+  .error-text {
+    font-size: 0.75rem;
+    color: #f87171;
+    margin-top: 0.25rem;
+  }
+  
+  .password-wrapper {
+    position: relative;
+  }
+  
+  .password-wrapper input {
+    padding-right: 3rem;
+  }
+  
+  .toggle-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 0.85rem;
+  }
+  
+  .primary-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+  }
+  
+  .primary-btn:hover {
+    background-color: #6d28d9;
+  }
+  
+  .footer-text {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 1rem;
+  }
+  
+  .link {
+    color: #7c3aed;
+    cursor: pointer;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  

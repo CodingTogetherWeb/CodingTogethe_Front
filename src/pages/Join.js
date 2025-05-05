@@ -26,6 +26,7 @@ const Join = () => {
 
             if (response.ok) {
                 alert(data.message || "회원가입이 완료되었습니다!");
+                window.location.href = "/";
             } else {
                 alert("회원가입 실패: " + (data.message || "알 수 없는 오류"));
             }
