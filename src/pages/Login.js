@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Login/Login.css";
 
 const Login = () => {
@@ -43,7 +44,7 @@ const Login = () => {
 
         const data = await response.json();
         localStorage.setItem("token", data.token);
-        window.location.href = "/";
+        window.location.href = "/home";
         alert("환영합니다.");
       } catch (error) {
         console.error("로그인 실패:", error);
@@ -96,9 +97,10 @@ const Login = () => {
           </button>
         </form>
 
+
         <div className="text-center">
           <p className="footer-text">
-            계정이 없으신가요? <span className="link">회원가입</span>
+            계정이 없으신가요?<Link to="/join"><span className="link">회원가입</span></Link>
           </p>
         </div>
       </div>
