@@ -1,8 +1,10 @@
 .sidebar {
-    width: 220px;
+    width: 200px;
+    height: 100vh;
     background-color: #f9f9f9;
     border-right: 1px solid #ddd;
     padding: 20px;
+    height: 100vh;
     box-sizing: border-box;
 }
 
