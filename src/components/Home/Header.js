@@ -1,18 +1,18 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styles/Home/Header.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // base64 디코딩 유틸
 function parseJwt(token) {
     try {
-        const base64Url = token.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const base64Url = token.split(".")[1];
+        const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
         const jsonPayload = decodeURIComponent(
             atob(base64)
-                .split('')
-                .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
-                .join('')
+                .split("")
+                .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
+                .join("")
         );
         return JSON.parse(jsonPayload);
     } catch (e) {
@@ -21,13 +21,21 @@ function parseJwt(token) {
 }
 
 const Header = () => {
-    const navigate = useNavigate();
     const token = localStorage.getItem("token");
     const user = token ? parseJwt(token) : null;
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        navigate("/");
+    const handleLogout = async () => {
+        try {
+            await fetch("http://localhost:8080/v0/api/jwt/logout", {
+                method: "POST",
+                credentials: "include", // 🍪 리프레시 토큰 쿠키를 함께 보냄
+            });
+        } catch (error) {
+            console.error("로그아웃 요청 실패:", error);
+        } finally {
+            localStorage.removeItem("token");
+            window.location.href = "/home";
+        }
     };
 
     return (
@@ -56,7 +64,9 @@ const Header = () => {
                 <div className="header-buttons">
                     {token ? (
                         <>
-                            <span className="username">안녕하세요, {user?.username || "회원"}님</span>
+                            <span className="username">
+                                안녕하세요, {user?.username || "회원"}님
+                            </span>
                             <button className="btn btn-logout" onClick={handleLogout}>
                                 로그아웃
                             </button>
